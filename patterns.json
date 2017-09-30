@@ -1,0 +1,183 @@
+{
+	"copy run-conf": {
+		"tftp": [
+			"Read running configuration...",
+			"\\s+tftp-running-config\\s+100% |\\S+|   \\d+   0:00:00 ETA"
+		],
+		"ftp": [
+			"Read running configuration..."
+		],
+		"sftp": [
+			"(sftp>  put \/tmp\/tftp_running_config sftp-running-config|\\s+)",
+			"(copy running|Upload running) configuration to sftp:\/\/\\S+\\d+.\\d+.\\d+.\\d+:\/test\/sftp-running-config...",
+			"Read running configuration..."
+		],
+		"scp": "Read running configuration..."
+	},
+
+	"copy candidat-config": {
+		"tftp": [
+			"Download candidate configuration from tftp:\/\/\\d+.\\d+.\\d+.\\d+:\/test\/tftp-running-config...",
+			"tftp-running-config \\s+ 100% |\\s+|   \\d+   0:00:00 ETA",
+			"Write default configuration...",
+			"Candidate configuration has been reset to default",
+			"Write candidate configuration..."
+		],
+		"ftp": [
+			"Download candidate configuration from ftp:\/\/\\w+:\\S+@\\d+.\\d+.\\d+.\\d+:\/test\/ftp-running-config...",
+			"Write default configuration...",
+			"Candidate configuration has been reset to default",
+			"Write candidate configuration..."
+		],
+		"sftp": [
+			"Download candidate configuration from sftp:\/\/\\w+:\\S+@\\d+.\\d+.\\d+.\\d+:\/test\/sftp-running-config...",
+			"Connected to \\d+.\\d+.\\d+.\\d+.",
+			"Fetching \/home\/\\w+\/test\/sftp-running-config to \/tmp\/tftp_candidate_config",
+			"Candidate configuration has been reset to default",
+			"Write candidate configuration..."
+		],
+		"scp": [
+			"Download candidate configuration from scp:\/\/\\w+:\\S+@\\d+.\\d+.\\d+.\\d+:\/test\/scp-running-config...",
+			"Write default configuration...",
+			"Candidate configuration has been reset to default",
+			"Write candidate configuration..."
+		]
+	},
+
+	"copy firmware from esr": {
+		"tftp": [
+			"copy firmware to tftp:\/\/\\d+.\\d+.\\d+.\\d+:\/test\/tftp-esr.firmware...",
+			"Read firmware...",
+			"Copy firmware from NAND...",
+			"Firmware copy success.",
+			"\\S+tftp-esr.firmware\\s+100% |\\S+| \\d+k  0:00:00 ETA"
+		],
+		"ftp": [
+			"copy firmware to ftp:\/\/\\w+:\\w+@\\d+.\\d+.\\d+.\\d+:\/test\/ftp-esr.firmware...",
+			"Read firmware...",
+			"Copy firmware from NAND...",
+			"Firmware copy success."
+		],
+		"sftp": [
+			"copy firmware to sftp:\/\/\\w+:\\w+@\\d+.\\d+.\\d+.\\d+:\/test\/sftp-esr.firmware...",
+			"Read firmware...",
+			"Copy firmware from NAND...",
+			"Firmware copy success."
+		],
+		"scp": [
+			"copy firmware to scp:\/\/\\w+:\\w+@\\d+.\\d+.\\d+.\\d+:\/test\/scp-esr.firmware...",
+			"Read firmware...",
+			"Copy firmware from NAND...",
+			"Firmware copy success."
+		]
+	},
+
+	"copy firmware to esr": {
+		"tftp": [
+			"Download firmware from tftp:\/\/\\d+.\\d+.\\d+.\\d+:\/test\/tftp-esr.firmware...",
+			"Verify image ... OK!",
+			"Writing data to NAND...",
+			"################",
+			"Firmware updated successfully."
+		],
+		"ftp": [
+			"Download firmware from ftp:\/\/\\w+:\\w+@\\d+.\\d+.\\d+.\\d+:\/test\/ftp-esr.firmware...",
+			"Verify image ... OK!",
+			"Writing data to NAND...",
+			"################",
+			"Firmware updated successfully."
+		],
+		"sftp": [
+			"Download firmware from sftp:\/\/\\w+:\\w+@\\d+.\\d+.\\d+.\\d+:\/test\/sftp-esr.firmware...",
+			"Connected to \\d+.\\d+.\\d+.\\d+",
+			"Verify image ... OK!",
+			"Writing data to NAND...",
+			"################",
+			"Firmware updated successfully."
+		],
+		"scp": [
+			"Download firmware from scp:\/\/\\w+:\\w+@\\d+.\\d+.\\d+.\\d+:\/test\/scp-esr.firmware...",
+			"",
+			"Verify image ... OK!",
+			"Writing data to NAND...",
+			"\\S+",
+			"Firmware updated successfully."
+		]
+	},
+
+	"copy uboot from esr": {
+		"tftp": [
+			"copy bootloader to tftp:\/\/\\d+.\\d+.\\d+.\\d+:\/test\/tftp-esr.uboot...",
+			"Read bootloader...",
+			"Bootloader copy success.",
+			"\\S+tftp-esr.uboot \\s+ 100% |\\S+|   \\d+k  0:00:00 ETA"
+		],
+		"ftp": [
+			"copy bootloader to ftp:\/\/\\w+:\\w+@\\d+.\\d+.\\d+.\\d+:\/test\/ftp-esr.uboot...",
+			"Read bootloader...",
+			"Bootloader copy success."
+		],
+		"sftp": [
+			"copy bootloader to sftp:\/\/\\w+:\\w+@\\d+.\\d+.\\d+.\\d+:\/test\/sftp-esr.uboot...",
+			"Read bootloader...",
+			"sftp> put \/tmp\/firmware test\/sftp-esr.uboot"
+		],
+		"scp": [
+			"copy bootloader to scp:\/\/\\w+:\\w+@\\d+.\\d+.\\d+.\\d+:\/test\/scp-esr.uboot...",
+			"Read bootloader...",
+			"Bootloader copy success."
+		]
+	},
+
+	"copy uboot to esr": {
+		"tftp": [
+			"Download bootloader from tftp:\/\/\\d+.\\d+.\\d+.\\d+:\/test\/\\w+-\\S+.uboot",
+			"Verify image ... OK!",
+			"Erased successfully\\s+Bootloader updated successfully."
+		],
+		"ftp": [
+			"Download bootloader from ftp:\/\/\\w+:\\w+@\\d+.\\d+.\\d+.\\d+:\/test\/\\w+-\\S+.uboot",
+			"Verify image ... OK!",
+			"Erased successfully\\s+Bootloader updated successfully."
+		],
+		"sftp": [
+			"Download bootloader from sftp:\/\/\\w+:\\w+@\\d+.\\d+.\\d+.\\d+:\/test\/\\w+-\\S+.uboot",
+			"Verify image ... OK!",
+			"Erased successfully\\s+Bootloader updated successfully."
+		],
+		"scp": [
+			"Download bootloader from scp:\/\/\\w+:\\w+@\\d+.\\d+.\\d+.\\d+:\/test\/\\w+-\\S+.uboot",
+			"Verify image ... OK!",
+			"Erased successfully\\s+Bootloader updated successfully."
+		]
+	},
+
+	"copy licence to esr": {
+		"tftp": [
+			"Download licence from tftp:\/\/\\d+.\\d+.\\d+.\\d+:\/test\/tftp-licence",
+			"Warning! Invalid file format. Please download another licence file"
+		],
+		"ftp": [
+			"Download licence from ftp:\/\/\\w+:\\w+@\\d+.\\d+.\\d+.\\d+:\/test\/ftp-licence",
+			"Warning! Invalid file format. Please download another licence file"
+		],
+		"sftp": [
+			"Download licence from sftp:\/\/\\w+:\\w+@\\d+.\\d+.\\d+.\\d+:\/test\/sftp-licence",
+			"Warning! Invalid file format. Please download another licence file"
+		],
+		"scp": [
+			"Download licence from scp:\/\/\\w+:\\w+@\\d+.\\d+.\\d+.\\d+:\/test\/scp-licence",
+			"Warning! Invalid file format. Please download another licence file"
+		]
+	},
+
+	"archive":
+	{
+		"tftp": "tftp-running-config_\\d+",
+		"ftp": "ftp-running-config_\\d+",
+		"sftp": "sftp-running-config_\\d+",
+		"scp": "scp-running-config_\\d+"
+	},
+
+	"show_bootvar": "\\d+       Unknown                     Unknown                Not Active"
+}
